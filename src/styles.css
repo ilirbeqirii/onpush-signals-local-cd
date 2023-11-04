@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: grid;
+	place-content: center;
+	background-color: rgb(15 23 42);
+}
+
+button {
+	padding: 10px 15px;
+  border-radius: 3px;
+  background: yellow;
+  border: 1px solid yellow;
+  margin-bottom: 1rem;
+	display: block;
+}
