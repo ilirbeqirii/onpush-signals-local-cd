@@ -15,7 +15,6 @@ import { ColorsService } from './colors.service';
     <div
       class="child-a-div"
       [style.background]="getBackgroundColor()"
-      (click)="changeValue()"
     >
       Child A: Count is {{ counta() }}
 
@@ -43,11 +42,11 @@ export class ChildAComponent {
   private colorService = inject(ColorsService);
   private currentColor: string | undefined;
 
-  ngOnInit() {
-    setTimeout(() => { // changing value of signal on child cmps here triggers CD only for that component
-      this.counta.update(v => v + 1);
-    }, 5000);
-  }
+  // ngOnInit() {
+  //   setTimeout(() => { // changing value of signal on child cmps here triggers CD only for that component
+  //     this.counta.update(v => v + 1);
+  //   }, 5000);
+  // }
 
   getBackgroundColor() {
     return (this.currentColor = this.colorService.getColor(this.currentColor));
@@ -65,7 +64,6 @@ export class ChildAComponent {
     <div
       class="child-b-div"
       [style.background]="getBackgroundColor()"
-      (click)="changeValue()"
     >
       Child B: Count is {{ countb() }}
 
@@ -93,11 +91,11 @@ export class ChildBComponent {
   private colorService = inject(ColorsService);
 
   
-  ngOnInit() { 
-    setTimeout(() => { // changing value of signal on child cmps here triggers CD only for that component
-      this.countb.update(v => v + 1);
-    }, 2500);
-  }
+  // ngOnInit() { 
+  //   setTimeout(() => { // changing value of signal on child cmps here triggers CD only for that component
+  //     this.countb.update(v => v + 1);
+  //   }, 2500);
+  // }
   private currentColor: string | undefined;
 
   getBackgroundColor() {
