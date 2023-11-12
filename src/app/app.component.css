@@ -1,32 +1,7 @@
-.parent-div {
-  width: 800px;
-  height: 500px;
-  background: teal;
-  padding: 30px;
-}
+.actions {
+	margin-top: 1rem;
 
-.container {
-  margin-top: 4rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-
-h1 {
-	text-align: center;
-	color: white;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-button {
-  margin: 0 auto;
-  display: block;
-  padding: 10px 15px;
-  border-radius: 3px;
-  background: yellow;
-  border: 1px solid yellow;
-  margin-bottom: 1rem;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
 }

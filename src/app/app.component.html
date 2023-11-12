@@ -1,9 +1,11 @@
-<div class="parent-div" [style.background]="getBackgroundColor()">
-  <h1>Parent Component: Count is {{count()}}</h1>
-  <button (click)="changeValue()">Change Value</button>
+<h1>Local Change Detection: Signals & OnPush</h1>
 
-  <div class="container">
-    <app-child-a />
-    <app-child-b />
-  </div>
+<app-parent />
+
+<div class="actions">
+  <button (click)="incParentCount()">Inc Parent Value</button>
+  <button (click)="incChildCount()">Inc Child Value</button>
+  <button (click)="incChildYCount()">Inc Child Y Value</button>
+  <button (click)="incGrandChildCount()">Inc Grand Child Value</button>
+  <button (click)="incGrandChildYCount()">Inc Grand Child Y Value</button>
 </div>

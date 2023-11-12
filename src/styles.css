@@ -6,9 +6,11 @@ body {
 }
 
 body {
+	margin: 0;
 	display: grid;
 	place-content: center;
 	background-color: rgb(15 23 42);
+	color: white;
 }
 
 button {
