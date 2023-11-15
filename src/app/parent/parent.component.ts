@@ -18,6 +18,12 @@ export class ParentComponent {
   colorService = inject(ColorsService);
   currentColor: string = '';
 
+  calls = 0;
+
+  getChecked() {
+    return ++this.calls;
+  }
+
   getBackgroundColor() {
     return (this.currentColor = this.colorService.getColor(this.currentColor));
   }

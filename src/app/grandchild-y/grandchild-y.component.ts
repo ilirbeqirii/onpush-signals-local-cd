@@ -36,8 +36,14 @@ export class GrandchildYComponent implements AfterViewInit {
   colorService = inject(ColorsService);
   currentColor: string = '';
 
+  calls = 0;
+
   getBackgroundColor() {
     return (this.currentColor = this.colorService.getColor(this.currentColor));
+  }
+
+  getChecked() {
+    return ++this.calls;
   }
 
   ngAfterViewInit(): void {

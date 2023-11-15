@@ -1,3 +1,7 @@
 <div class="container" [style.backgroundColor]="getBackgroundColor()">
-  <h4>GrandChild X: {{ count() }}</h4>
+  <h4>GrandChild X: value: {{ count() }} runs: {{getChecked()}}</h4>
+
+  <button (click)="updateValue()">Increment Count (Event Handler)</button>
+
+  <label><b style="color: white">Global</b> Change Detection Mode</label>
 </div>

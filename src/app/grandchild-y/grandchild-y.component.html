@@ -1,5 +1,7 @@
 <div class="container" [style.backgroundColor]="getBackgroundColor()">
-  <h4>GrandChild Y: {{ count() }}</h4>
+  <h4>GrandChild Y: value: {{ count() }} runs: {{getChecked()}}</h4>
 
-  <button #incCount>Inc Count</button>
+  <button #incCount>Increment Count (Update signal)</button>
+
+  <label><b style="color: white">Targeted</b> Change Detection Mode</label>
 </div>
