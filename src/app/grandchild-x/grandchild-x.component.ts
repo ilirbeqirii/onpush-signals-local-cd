@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Injector, ViewChild, inject, runInInjectionContext } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ColorsService } from '../colors.service';
 import { grandChildCount } from '../app.component';
+import { ColorDirective } from '../color.directive';
+import { ColorsService } from '../colors.service';
 
 @Component({
   selector: 'app-grandchild-x',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ColorDirective],
   templateUrl: './grandchild-x.component.html',
   styleUrl: './grandchild-x.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ColorsService]
 })
 export class GrandchildXComponent {
   @ViewChild('incButton') incButton!: ElementRef<HTMLButtonElement>;
@@ -18,14 +20,7 @@ export class GrandchildXComponent {
   
   injector = inject(Injector);
 
-  colorService = inject(ColorsService);
-  currentColor: string = '';
-
   calls = 0;
-
-  getBackgroundColor() {
-    return (this.currentColor = this.colorService.getColor(this.currentColor));
-  }
 
   getChecked() {
     return ++this.calls;

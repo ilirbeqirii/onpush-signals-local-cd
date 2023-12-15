@@ -13,16 +13,18 @@ import {
 import { CommonModule } from '@angular/common';
 import { ColorsService } from '../colors.service';
 import { grandChildYCount } from '../app.component';
-import { debounce, fromEvent, throttleTime } from 'rxjs';
+import { fromEvent, throttleTime } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ColorDirective } from '../color.directive';
 
 @Component({
   selector: 'app-grandchild-y',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ColorDirective],
   templateUrl: './grandchild-y.component.html',
   styleUrl: './grandchild-y.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ColorsService]
 })
 export class GrandchildYComponent implements AfterViewInit {
   @ViewChild('incCount') incButton!: ElementRef<HTMLButtonElement>;
@@ -33,14 +35,7 @@ export class GrandchildYComponent implements AfterViewInit {
   injector = inject(Injector);
   app = inject(ApplicationRef);
 
-  colorService = inject(ColorsService);
-  currentColor: string = '';
-
   calls = 0;
-
-  getBackgroundColor() {
-    return (this.currentColor = this.colorService.getColor(this.currentColor));
-  }
 
   getChecked() {
     return ++this.calls;

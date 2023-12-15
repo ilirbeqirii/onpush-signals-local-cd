@@ -1,5 +1,5 @@
-<div class="container" [style.backgroundColor]="getBackgroundColor()">
-  <h3>Child Y: value: {{ count() }} runs: {{getChecked()}}</h3>
+<div class="container" appColor>
+  <h3>(Child Y: OnPush) <br /> value: {{ count() }} runs: {{getChecked()}}</h3>
 
   <app-grandchild-y />
 </div>

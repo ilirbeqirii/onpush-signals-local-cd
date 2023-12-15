@@ -1,5 +1,5 @@
-<div class="container" [style.backgroundColor]="getBackgroundColor()">
-  <h4>GrandChild X: value: {{ count() }} runs: {{getChecked()}}</h4>
+<div class="container" appColor>
+  <h4>(GrandChild X: OnPush) <br /> value: {{ count() }} runs: {{getChecked()}}</h4>
 
   <button (click)="updateValue()">Increment Count (Event Handler)</button>
 

@@ -1,29 +1,22 @@
 import {Injectable} from "@angular/core";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ColorsService {
-  private colors = [
-    '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
-    '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D'
-  ];
+  private colors = ['#009d00', '#B34D4D'];
 
   getColor(currentColor?: string): string {
     if (!currentColor) {
-      return this.pickColor();
+      return this.colors[0];
     }
 
-    let pickedColor = currentColor;
-
-    while (pickedColor === currentColor) {
-      pickedColor = this.pickColor();
+    if (currentColor == this.colors[0]) {
+      return this.colors[1]
     }
-    return pickedColor;
-  }
 
-  private pickColor(): string {
-    return this.colors[Math.floor(Math.random() * this.colors.length)];
-  }
+    if (currentColor == this.colors[1]) {
+      return this.colors[0]
+    }
 
+    return this.colors[0]
+  }
 }

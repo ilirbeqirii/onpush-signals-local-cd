@@ -1,30 +1,27 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ChildXComponent } from '../child-x/child-x.component';
 import { ChildYComponent } from '../child-y/child-y.component';
-import { ColorsService } from '../colors.service';
 import { parentCount } from '../app.component';
+import { ColorDirective } from '../color.directive';
+import { ColorsService } from '../colors.service';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
-  imports: [ChildXComponent, ChildYComponent],
+  imports: [ChildXComponent, ChildYComponent, ColorDirective],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [ColorsService]
 })
 export class ParentComponent {
   count = parentCount;
-
-  colorService = inject(ColorsService);
-  currentColor: string = '';
 
   calls = 0;
 
   getChecked() {
     return ++this.calls;
-  }
-
-  getBackgroundColor() {
-    return (this.currentColor = this.colorService.getColor(this.currentColor));
   }
 }
