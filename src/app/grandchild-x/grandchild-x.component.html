@@ -1,7 +1,5 @@
 <div class="container" appColor>
-  <h4>(GrandChild X: OnPush) <br /> value: {{ count() }} runs: {{getChecked()}}</h4>
+  <h4>(GrandChild X: <span style="color:white;">OnPush</span>) <br /> value: {{ count() }} runs: {{getChecked()}}</h4>
 
-  <button (click)="updateValue()">Increment Count (Event Handler)</button>
-
-  <label><b style="color: white">Global</b> Change Detection Mode</label>
+  <button (click)="updateValue()">Increment Count</button>
 </div>

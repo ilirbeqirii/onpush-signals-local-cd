@@ -22,6 +22,11 @@ button {
   display: block;
   color: white;
 	cursor: pointer;
+  justify-self: center;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .container {
