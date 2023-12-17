@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ColorsService } from '../colors.service';
-import { grandChildYCount } from '../app.component';
+import { AppComponent, grandChildYCount } from '../app.component';
 import { fromEvent, throttleTime } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColorDirective } from '../color.directive';
@@ -24,7 +24,7 @@ import { ColorDirective } from '../color.directive';
   templateUrl: './grandchild-y.component.html',
   styleUrl: './grandchild-y.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ColorsService]
+  providers: [ColorsService],
 })
 export class GrandchildYComponent implements AfterViewInit {
   @ViewChild('incCount') incButton!: ElementRef<HTMLButtonElement>;
@@ -34,6 +34,8 @@ export class GrandchildYComponent implements AfterViewInit {
   ngZone = inject(NgZone);
   injector = inject(Injector);
   app = inject(ApplicationRef);
+
+  rootComponent = inject(AppComponent)
 
   calls = 0;
 
@@ -48,7 +50,11 @@ export class GrandchildYComponent implements AfterViewInit {
           .pipe(throttleTime(1000), takeUntilDestroyed())
           .subscribe(() => {
             this.count.update((v) => v + 1);
-            this.app.tick();   
+
+            // for demo purpose: just to make coloring work
+            this.rootComponent.cdRef.markForCheck();
+
+            this.app.tick();
           });
       });
     });
