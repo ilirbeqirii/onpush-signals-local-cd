@@ -11,3 +11,4 @@ Below you can also find a diagram explaining that visually explains what happens
 Here is a short, visual animation as what the codebase demoes:
 [gif.webm](https://github.com/ilirbeqirii/onpush-signals-local-cd/assets/24731032/7f264318-30ab-4d46-8d57-c026285b112a)
 
+You can find the code for other use case mentioned in article in this branch: shared-state-service-or-component
