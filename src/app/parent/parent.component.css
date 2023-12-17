@@ -6,6 +6,8 @@
 	display: grid;
 	justify-content: center;
 	gap: 1rem;
+
+	width: 1000px;
 }
 
 .children {

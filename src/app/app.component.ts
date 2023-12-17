@@ -12,8 +12,7 @@ export const grandChildYCount = signal(1);
   standalone: true,
   imports: [ParentComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   incParentCount() {

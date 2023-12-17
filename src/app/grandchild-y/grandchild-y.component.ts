@@ -48,8 +48,7 @@ export class GrandchildYComponent implements AfterViewInit {
           .pipe(throttleTime(1000), takeUntilDestroyed())
           .subscribe(() => {
             this.count.update((v) => v + 1);
-
-            this.app.tick();
+            this.app.tick();   
           });
       });
     });
