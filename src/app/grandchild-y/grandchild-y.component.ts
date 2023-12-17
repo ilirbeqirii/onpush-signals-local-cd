@@ -27,13 +27,13 @@ import { ColorDirective } from '../color.directive';
   providers: [ColorsService],
 })
 export class GrandchildYComponent implements AfterViewInit {
-  @ViewChild('incCount') incButton!: ElementRef<HTMLButtonElement>;
+  // @ViewChild('incCount') incButton!: ElementRef<HTMLButtonElement>;
 
   count = grandChildYCount;
 
-  ngZone = inject(NgZone);
-  injector = inject(Injector);
-  app = inject(ApplicationRef);
+  // ngZone = inject(NgZone);
+  // injector = inject(Injector);
+  // app = inject(ApplicationRef);
 
   rootComponent = inject(AppComponent)
 
@@ -44,19 +44,19 @@ export class GrandchildYComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    runInInjectionContext(this.injector, () => {
-      this.ngZone.runOutsideAngular(() => {
-        fromEvent(this.incButton.nativeElement, 'click')
-          .pipe(throttleTime(1000), takeUntilDestroyed())
-          .subscribe(() => {
-            this.count.update((v) => v + 1);
+    // runInInjectionContext(this.injector, () => {
+    //   this.ngZone.runOutsideAngular(() => {
+    //     fromEvent(this.incButton.nativeElement, 'click')
+    //       .pipe(throttleTime(1000), takeUntilDestroyed())
+    //       .subscribe(() => {
+    //         this.count.update((v) => v + 1);
 
-            // for demo purpose: just to make coloring work
-            this.rootComponent.cdRef.markForCheck();
+    //         // for demo purpose: just to make coloring work
+    //         this.rootComponent.cdRef.markForCheck();
 
-            this.app.tick();
-          });
-      });
-    });
+    //         this.app.tick();
+    //       });
+    //   });
+    // });
   }
 }
