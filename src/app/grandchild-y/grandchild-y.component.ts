@@ -45,7 +45,7 @@ export class GrandchildYComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     runInInjectionContext(this.injector, () => {
-      this.ngZone.runOutsideAngular(() => {
+      // this.ngZone.runOutsideAngular(() => {
         fromEvent(this.incButton.nativeElement, 'click')
           .pipe(throttleTime(1000), takeUntilDestroyed())
           .subscribe(() => {
@@ -54,9 +54,9 @@ export class GrandchildYComponent implements AfterViewInit {
             // for demo purpose: just to make coloring work
             this.rootComponent.cdRef.markForCheck();
 
-            this.app.tick();
+            // this.app.tick();
           });
-      });
+      // });
     });
   }
 }
